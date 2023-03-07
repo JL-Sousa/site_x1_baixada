@@ -7,10 +7,11 @@ export const Container = styled.div`
 `;
 
 export const ContainerCard = styled.div`
-  background-color: #4f4f60;
+  background-color: #686a7d;
   display: flex;
   justify-content: space-between;
-  padding: 12px;
+  align-items: center;
+  padding: 8px;
   margin-bottom: 4px;
   color: #fff;
   border-radius: 5px;
@@ -24,6 +25,16 @@ export const ContainerCard = styled.div`
     justify-content: space-between;
     width: 100%;
     margin-right: 36px;
+  }
+
+  button {
+    color: #fa1f2d;
+    background-color: #686a7d;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
   }
 
   div p {

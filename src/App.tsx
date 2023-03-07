@@ -4,14 +4,21 @@ import { GlobalStyle } from "./styles/global";
 import { ChangeEvent, useState } from "react";
 import { Container, InputText, InputNumber } from "./style_app";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleCheck,
+  faHandHoldingDollar,
+} from "@fortawesome/free-solid-svg-icons";
+
 export type Apostador = {
+  id: number;
   nome: string;
   valor: number;
 };
 
 function App() {
   const [nomeInput, setNomeInput] = useState("");
-  const [valorInput, setValorInput] = useState(0);
+  const [valorInput, setValorInput] = useState(50);
   const [totalAposta, setTotalAposta] = useState(0);
   const [listaApostadores, setListaApostadores] = useState<Apostador[]>([]);
 
@@ -20,7 +27,11 @@ function App() {
     if (nomeInput != "" && valorInput >= 50) {
       setListaApostadores((previousApostadores) => [
         ...previousApostadores,
-        { nome: nomeInput, valor: valorinputAposta * 2 * 0.95 },
+        {
+          id: Math.random(),
+          nome: nomeInput,
+          valor: valorinputAposta * 2 * 0.95,
+        },
       ]);
 
       valorTotalAposta();
@@ -47,7 +58,13 @@ function App() {
 
   function limparFormulario() {
     setNomeInput("");
-    setValorInput(0);
+    setValorInput(50);
+  }
+
+  function deletarApostador(id: number) {
+    setListaApostadores((previousApostadores) =>
+      previousApostadores.filter((apostador) => apostador.id != id)
+    );
   }
 
   return (
@@ -67,11 +84,18 @@ function App() {
             value={valorInput}
             onChange={handleValorIput}
           />
-          <button onClick={adicionarApostador}>Adicionar</button>
+          <button onClick={adicionarApostador}>
+            Adicionar
+            <FontAwesomeIcon icon={faCircleCheck} size="lg" />
+          </button>
         </div>
       </Container>
       {listaApostadores.map((apostadores) => (
-        <Card key={apostadores.nome} apostador={apostadores} />
+        <Card
+          key={apostadores.nome}
+          apostador={apostadores}
+          deleteApostador={deletarApostador}
+        />
       ))}
 
       <GlobalStyle />
