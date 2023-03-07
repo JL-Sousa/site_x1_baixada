@@ -8,15 +8,22 @@ type TotalApostaProps = {
   aposta: number;
 };
 export function Header({ aposta }: TotalApostaProps) {
+  const valorFormatado = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    currencySign: "accounting",
+    maximumFractionDigits: 2,
+  }).format(aposta);
+
   return (
     <HeaderContainer>
       <img src={logo} alt="logo x1 da baixada" />
       <div>
         <h3>
-          Total Apostado{" "}
           <FontAwesomeIcon icon={faHandHoldingDollar} size="lg" />
+          Total Apostado
         </h3>
-        <p>{`${aposta} R$`}</p>
+        <p>{valorFormatado}</p>
       </div>
     </HeaderContainer>
   );

@@ -1,14 +1,11 @@
 import { Header } from "./components/Header";
 import { Card } from "./components/Card";
 import { GlobalStyle } from "./styles/global";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Container, InputText, InputNumber } from "./style_app";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faHandHoldingDollar,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 export type Apostador = {
   id: number;
@@ -34,7 +31,8 @@ function App() {
         },
       ]);
 
-      valorTotalAposta();
+      setTotalAposta(totalAposta + valorinputAposta);
+
       limparFormulario();
       return;
     }
@@ -47,15 +45,6 @@ function App() {
     setValorInput(valorInput);
   };
 
-  function valorTotalAposta() {
-    let valorAtual = 0;
-    listaApostadores.map((apostador) => {
-      valorAtual = valorAtual + apostador.valor;
-    });
-
-    setTotalAposta(valorAtual);
-  }
-
   function limparFormulario() {
     setNomeInput("");
     setValorInput(50);
@@ -65,6 +54,7 @@ function App() {
     setListaApostadores((previousApostadores) =>
       previousApostadores.filter((apostador) => apostador.id != id)
     );
+    setTotalAposta(0);
   }
 
   return (
@@ -92,7 +82,7 @@ function App() {
       </Container>
       {listaApostadores.map((apostadores) => (
         <Card
-          key={apostadores.nome}
+          key={apostadores.id}
           apostador={apostadores}
           deleteApostador={deletarApostador}
         />

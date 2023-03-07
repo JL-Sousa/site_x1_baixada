@@ -13,12 +13,20 @@ export function Card({ apostador, deleteApostador }: ApostadorProps) {
   function handleDeleteApostador() {
     deleteApostador(apostador.id);
   }
+
+  const valorFormatado = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    currencySign: "accounting",
+    maximumFractionDigits: 2,
+  }).format(apostador.valor);
+
   return (
     <Container>
       <ContainerCard>
         <div>
           <h2>{apostador.nome}</h2>
-          <p>{`${apostador.valor} R$`}</p>
+          <p>{valorFormatado}</p>
         </div>
         <button onClick={handleDeleteApostador}>
           <FontAwesomeIcon icon={faTrashCan} size="2x" />

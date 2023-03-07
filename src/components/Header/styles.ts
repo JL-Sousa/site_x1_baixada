@@ -18,6 +18,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     h3 {
       color: #f56217;
+      font-size: 1rem;
     }
     p {
       color: #00b34c;
