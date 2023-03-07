@@ -1,7 +1,7 @@
 import { Header } from "./components/Header";
 import { Card } from "./components/Card";
 import { GlobalStyle } from "./styles/global";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Container, InputText, InputNumber } from "./style_app";
 
 export type Apostador = {
@@ -26,8 +26,8 @@ function App() {
     limparFormulario();
   }
 
-  const handleValorIput = (e) => {
-    let valorInput: number = e.target.value;
+  const handleValorIput = (e: ChangeEvent<HTMLInputElement>) => {
+    let valorInput: number = Number.parseInt(e.target.value);
     setValorInput(valorInput);
   };
 
