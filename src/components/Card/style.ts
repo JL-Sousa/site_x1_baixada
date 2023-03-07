@@ -27,6 +27,26 @@ export const ContainerCard = styled.div`
   }
 
   div p {
-    font-size: 24px;
+    font-size: 1.2rem;
+  }
+
+  div h2 {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 1420px) {
+    margin: 0 8px;
+
+    div p {
+      font-size: 1rem;
+    }
+
+    div h2 {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 460px) {
+    padding: 0.25rem;
   }
 `;
