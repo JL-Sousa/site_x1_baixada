@@ -17,13 +17,18 @@ function App() {
 
   function adicionarApostador() {
     let valorinputAposta = valorInput;
-    setListaApostadores((previousApostadores) => [
-      ...previousApostadores,
-      { nome: nomeInput, valor: valorinputAposta * 2 * 0.95 },
-    ]);
+    if (nomeInput != "" && valorInput >= 50) {
+      setListaApostadores((previousApostadores) => [
+        ...previousApostadores,
+        { nome: nomeInput, valor: valorinputAposta * 2 * 0.95 },
+      ]);
 
-    valorTotalAposta();
-    limparFormulario();
+      valorTotalAposta();
+      limparFormulario();
+      return;
+    }
+
+    alert("preencha o nome e adicione um valor igual ou maior a 50,00 R$");
   }
 
   const handleValorIput = (e: ChangeEvent<HTMLInputElement>) => {
