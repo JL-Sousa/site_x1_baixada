@@ -2,11 +2,7 @@ import { Apostador } from "../../App";
 import { Container, ContainerCard } from "./style";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTrashCan,
-  faRegular,
-  faThumbsUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 type ApostadorProps = {
   apostador: Apostador;
