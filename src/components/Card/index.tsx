@@ -2,7 +2,11 @@ import { Apostador } from "../../App";
 import { Container, ContainerCard } from "./style";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrashCan,
+  faRegular,
+  faThumbsUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 type ApostadorProps = {
   apostador: Apostador;
@@ -29,7 +33,7 @@ export function Card({ apostador, deleteApostador }: ApostadorProps) {
           <p>{valorFormatado}</p>
         </div>
         <button onClick={handleDeleteApostador}>
-          <FontAwesomeIcon icon={faTrashCan} size="2x" />
+          <FontAwesomeIcon icon={faThumbsUp} size="2x" />
         </button>
       </ContainerCard>
     </Container>

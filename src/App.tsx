@@ -27,7 +27,7 @@ function App() {
         {
           id: Math.random(),
           nome: nomeInput,
-          valor: valorinputAposta * 2 * 0.95,
+          valor: valorinputAposta, // * 2 * 0.95
         },
       ]);
 

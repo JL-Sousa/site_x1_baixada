@@ -28,7 +28,7 @@ export const ContainerCard = styled.div`
   }
 
   button {
-    color: #fa1f2d;
+    color: #00b34c;
     background-color: #686a7d;
     border: none;
     width: 40px;

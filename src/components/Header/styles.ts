@@ -7,6 +7,10 @@ export const HeaderContainer = styled.header`
   padding: 20px;
   background-color: #22222b;
 
+  h1 {
+    color: #f56217;
+  }
+
   img {
     width: 64px;
     border-radius: 5px;
