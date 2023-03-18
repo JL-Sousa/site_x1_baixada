@@ -18,7 +18,7 @@ export function Header({ aposta }: TotalApostaProps) {
   return (
     <HeaderContainer>
       <img src={logo} alt="logo x1 da baixada" />
-      <h1>Oséias☘️ x Focka🦭</h1>
+      <h1>T MUller x Preto</h1>
       <div>
         <h3>
           <FontAwesomeIcon icon={faHandHoldingDollar} size="lg" />
